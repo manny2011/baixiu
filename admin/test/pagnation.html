@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./pagination(1).css" />
+    <script src="../../assets/vendors/jquery/jquery.min.js"></script>
+    <script src="./jquery.pagination.js"></script>
+  </head>
+  <body>
+    <div id="pagination"></div>
+    <script>
+      $(function () {
+        var pageCount = 500; //分页总数量
+        // $("#pagination").pagination(pageCount); //简单初始化方法
+        $("#pagination").pagination(
+          pageCount, //分布总数量，必须参数
+          {
+            callback: PageCallback, //PageCallback() 为翻页调用次函数。
+            prev_text: "« 上一页",
+            next_text: "下一页 »",
+            load_first_page:false,
+            items_per_page: 10,
+            num_edge_entries: 1, //两侧首尾分页条目数
+            num_display_entries: 5, //连续分页主体部分分页条目数
+            current_page: 1, //当前页索引
+            link_to: "?id=__id__", //分页的js中会自动把"__id__"替换为当前的数。0
+          }
+        );
+
+        function PageCallback(page_index, jq) {
+          // $.ajax({
+          //   type: "POST",
+          //   dataType: "text",
+          //   url: "后台处理地址", //提交到一般处理程序请求数据
+          //   data: "pageIndex=" + pageIndex + "&pageSize=" + pageSize, //提交两个参数：pageIndex(页面索引)，pageSize(显示条数)
+          //   success: function (data) {
+          //     //后台服务返回数据，重新加载数据
+          //   },
+          // });
+          alert(page_index);
+        }
+      });
+    </script>
+  </body>
+</html>

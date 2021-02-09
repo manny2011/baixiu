@@ -1,18 +1,18 @@
-<?php 
-  include_once('../sql/fn.php');
-  include_once('./include/checkLoginStatus.php');
-  checkLoginStatus();
-  $postsNumSql = "select COUNT(*) as total from posts";
-  $draftsNumSql = "select COUNT(*) as total from posts where status ='drafted'";
-  $categoryNumSql = "select COUNT(*) as total from categories";
-  $commentsNumSql = "select COUNT(*) as total from comments";
-  $heldCommentsNumSql = "select COUNT(*) as total from comments where status = 'held'";
+<?php
+include_once('../sql/fn.php');
+include_once('./include/checkLoginStatus.php');
+checkLoginStatus();
+$postsNumSql = "select COUNT(*) as total from posts";
+$draftsNumSql = "select COUNT(*) as total from posts where status ='drafted'";
+$categoryNumSql = "select COUNT(*) as total from categories";
+$commentsNumSql = "select COUNT(*) as total from comments";
+$heldCommentsNumSql = "select COUNT(*) as total from comments where status = 'held'";
 
-  $postNum = my_exec_query($postsNumSql)[0]['total'];
-  $draftsNum = my_exec_query($draftsNumSql)[0]['total'];
-  $categoryNum = my_exec_query($categoryNumSql)[0]['total'];
-  $commentsNum = my_exec_query($commentsNumSql)[0]['total'];
-  $heldCommentsNum = my_exec_query($heldCommentsNumSql)[0]['total'];
+$postNum = my_exec_query($postsNumSql)[0]['total'];
+$draftsNum = my_exec_query($draftsNumSql)[0]['total'];
+$categoryNum = my_exec_query($categoryNumSql)[0]['total'];
+$commentsNum = my_exec_query($commentsNumSql)[0]['total'];
+$heldCommentsNum = my_exec_query($heldCommentsNumSql)[0]['total'];
 
 ?>
 <!DOCTYPE html>
@@ -54,9 +54,9 @@
               <h3 class="panel-title">站点内容统计：</h3>
             </div>
             <ul class="list-group">
-              <li class="list-group-item"><strong><?php echo $postNum?></strong>篇文章（<strong><?php echo $draftsNum?></strong>篇草稿）</li>
-              <li class="list-group-item"><strong><?php echo $categoryNum?></strong>个分类</li>
-              <li class="list-group-item"><strong><?php echo $commentsNum?></strong>条评论（<strong><?php echo $heldCommentsNum?></strong>条待审核）</li>
+              <li class="list-group-item"><strong><?php echo $postNum ?></strong>篇文章（<strong><?php echo $draftsNum ?></strong>篇草稿）</li>
+              <li class="list-group-item"><strong><?php echo $categoryNum ?></strong>个分类</li>
+              <li class="list-group-item"><strong><?php echo $commentsNum ?></strong>条评论（<strong><?php echo $heldCommentsNum ?></strong>条待审核）</li>
             </ul>
           </div>
         </div>
@@ -76,6 +76,7 @@
   <script>
     NProgress.done()
   </script>
+
 </body>
 
 </html>

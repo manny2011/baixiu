@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      padding: 5px;
+      border: 1px solid green;
+    }
+    span{
+      border: 1px solid #333;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+    span:hover{
+      background-color: #777777;
+    }
+  </style>
+  <script src="../../assets/vendors/jquery/jquery.min.js"></script>
+</head>
+<body>
+  <div id="outer"></div>
+  
+  <script>
+    $(function(){
+      var num = 20
+      var prev = $('<span></span>');
+      prev.text('prev')
+      $('#outer').append(prev);
+      for(let i = 0;i<num;i++){
+        var newSpan = $('<span></span>');
+        newSpan.text(i);
+        $('#outer').append(newSpan);
+      }
+      var nextSpan = $('<span></span>');
+      nextSpan.text('next')
+      $('#outer').append(nextSpan);
+
+
+
+    })
+  </script>
+</body>
+</html>
