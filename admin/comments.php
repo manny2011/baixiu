@@ -40,9 +40,9 @@ checkLoginStatus();
       <div class="page-action">
         <!-- show when multiple checked -->
         <div class="btn-batch pull-left btn-batch" style="display: none">
-          <button class="btn btn-info btn-sm">批量批准</button>
+          <button class="btn btn-info btn-sm btn-approve-all">批量批准</button>
           <!-- <button class="btn btn-warning btn-sm">批量拒绝</button> -->
-          <button class="btn btn-danger btn-sm">批量删除</button>
+          <button class="btn btn-danger btn-sm btn-del-all">批量删除</button>
         </div>
         <div class="pagination pagination-sm pull-right">
 
@@ -74,7 +74,7 @@ checkLoginStatus();
   <script type="text/template" id="template">
     {{each list v i}}
     <tr>
-      <td class="text-center"><input type="checkbox" class='tr-chk'></td>
+      <td class="text-center" data_id={{v.id}}><input type="checkbox" class='tr-chk'></td>
       <td>{{v.author}}</td>
       <td style='width:500px'>{{v.content}}</td>
       <td>《{{v.title}}》</td>
@@ -210,6 +210,55 @@ checkLoginStatus();
       }
 
     })
+
+    $('.btn-approve-all').click(function() {
+      // console.log($('.tr-chk:checked'));
+      var ids = getIds();
+      $.ajax({
+        url: './interface/comApprove.php',
+        dataType: 'json',
+        data: {
+          id: ids.join(), //默认用逗号隔开 ’1，2，3，‘
+        },
+        success: function(data) {
+          // console.log(data);
+          if (data != 0) {
+            getData(currentPage)
+            $('.th-chk').prop('checked', false)
+            $('.btn-batch').hide()
+          }
+        }
+      })
+    })
+    $('.btn-del-all').click(function() {
+      var ids = getIds()
+      $.ajax({
+        url: './interface/comDel.php',
+        dataType: 'json',
+        data: {
+          id: ids.join(),
+        },
+        success: function(data) {
+          var total = data['total'];
+          var maxPages = Math.ceil(total / 10);
+          if (currentPage > (maxPages - 1)) {
+            currentPage = maxPages - 1
+          }
+          console.log(total);
+          renderPagination(total)
+          $('.th-chk').prop('checked', false)
+          $('.btn-batch').hide()
+        }
+      })
+    })
+
+    function getIds() {
+      var ids = []
+      $('.tr-chk:checked').each(function(i, elem) {
+        ids.push($(elem).parent().attr('data_id'))
+      })
+      return ids
+    }
 
     function renderPagination(total) {
       $('.pagination').pagination(total, {

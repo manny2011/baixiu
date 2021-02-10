@@ -1,7 +1,7 @@
 <?php
 include_once('../../sql/fn.php');
 $id = $_GET['id'];
-$sql = "DELETE from comments where id = $id";
+$sql = "DELETE from comments where id in ($id)";
 $data = my_exec($sql);
 
 if ($data == 1) { //删除成功
