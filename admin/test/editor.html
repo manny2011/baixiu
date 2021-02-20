@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #editor{
+      border: 1px solid green;
+    }
+  </style>
+</head>
+<body>
+  <div id="eidtor">
+
+  </div>
+  <textarea name="content" id="text1" cols="30" rows="10">
+
+  </textarea>
+  <script src="../../lib/wangEditor.min.js"></script>
+  <script>
+    const E = window.wangEditor
+    const editor = new E('#eidtor')
+    editor.config.height = 200
+    editor.config.onchange = function(html){
+      console.log(html)
+      document.querySelector('#text1').value = html
+    }
+    editor.create()
+  </script>
+</body>
+</html>

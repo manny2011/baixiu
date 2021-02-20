@@ -80,16 +80,34 @@ checkLoginStatus();
     {{/each}}
   </script>
 
+  <script type="text/template" id="category-temp">
+    {{each $data}}// $data 可以是数组，也可以是个对象
+    <option value={{$value.id}}>{{$value.name}}</option>
+    {{/each}}
+  </script>
+  <script type="text/template" id="state-temp">
+    {{each $data}}// $data 可以是数组，也可以是个对象
+    <option value="{{$index}}">{{$value}}</option>
+    {{/each}}
+  </script>
+
   <!-- include aside -->
   <?php
   $page = 'posts';
-  include_once('./include/aside.php') ?>
-
+  include_once('./include/edit.php');
+  include_once('./include/aside.php'); ?>
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
   <script src="../lib/jquery.pagination.js"></script>
   <script src="../lib/template-web.js"></script>
+  <script src="../lib/moment.min.js"></script>
+  <script src="../lib/wangEditor.min.js"></script>
   <script>
+    const E = window.wangEditor
+    const editor = new E('#content-box')
+    // 或者 const editor = new E( document.getElementById('div1') )
+    editor.create()
+
     var currentPage = 0;
     var pageSize = 10;
     var state = {
@@ -104,6 +122,36 @@ checkLoginStatus();
         renderPagination(data['total'])
       }
     })
+
+    $.ajax({
+      url: './post_interface/comCategories.php',
+      dataType: 'json',
+      success: function(categories) {
+        $('#category').html(template('category-temp', categories))
+      }
+    })
+
+    var state1 = {
+      held: '待审核',
+      approved: '准许',
+      rejected: '拒绝',
+      trashed: '回收站',
+      published: "已发布",
+      drafted: '草稿',
+    }
+    $('#status').html(template('state-temp', state1))
+    $('#feature').on('change', function() {
+      var file = this.files[0]
+      var url = URL.createObjectURL(file)
+      $('#img').attr('src', url).show()
+    })
+    $('#slug').on('input', function() {
+      console.log('.....slug......');
+      var slug = $(this).val();
+      // $('#slug-strong').text(slug ? slug : 'slug');优化下，替代三目
+      $('#slug-strong').text(slug || 'slug');
+    })
+    $('#created').val(moment().format('YYYY-MM-DDTHH:mm'))
 
     $('tbody').on('click', '.btn-del', function() {
       var id = $(this).parent().attr('data_id')
@@ -188,6 +236,40 @@ checkLoginStatus();
         $('.btn-del-all').hide()
       }
     })
+
+    $('tbody').on('click', '.btn-edit', function() {
+      var id = $(this).parent().attr('data_id')
+      $.get('./post_interface/comGetById.php', {
+          id: id
+        }, function(data, status) {
+          if (status == 'success') {
+            console.log(data);
+            bindEditBox(data)
+          }
+        },
+        'json'
+      )
+    })
+
+    $('#btn-cancel').on('click', function() {
+      $('.edit-box').hide()
+    })
+
+    function bindEditBox(data) {
+      $('#id').val(data.id)
+      $('.edit-box').show()
+      $('#title').val(data.title)
+      editor.txt.html(data.content)
+      $('#content').val(data.content)
+      $('#slug,#slug-strong').val(data.slug)
+      $('#slug-strong').text(data.slug)
+      // $('#feature').val(data.feature)
+      $('#img').attr('src', '../' + data.feature).show()
+      $('#category option[value = ' + data.category_id + ']').prop('selected', true) //学个属性值选择器
+      $('#created').val(moment(data.created).format('YYYY-MM-DDTHH:mm'))
+      $('#status option[value = ' + data.status + ']').prop('selected', true)//学个属性值选择器 (_)
+
+    }
   </script>
   <script>
     NProgress.done()
