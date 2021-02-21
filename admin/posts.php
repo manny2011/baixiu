@@ -106,6 +106,10 @@ checkLoginStatus();
     const E = window.wangEditor
     const editor = new E('#content-box')
     // 或者 const editor = new E( document.getElementById('div1') )
+    editor.config.onchange = function(html){
+      console.log(html);
+      $('#content').val(html)
+    }
     editor.create()
 
     var currentPage = 0;
@@ -255,6 +259,24 @@ checkLoginStatus();
       $('.edit-box').hide()
     })
 
+    $('#btn-update').on('click', function() {
+      var fd = new FormData($('#editForm')[0])
+      $.ajax({
+        url: './post_interface/comPostUpdate.php',
+        type: 'post',
+        dataType: 'json',
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+          console.log(data);
+          getData()
+          $('.edit-box').hide()
+
+        }
+      })
+    })
+
     function bindEditBox(data) {
       $('#id').val(data.id)
       $('.edit-box').show()
@@ -267,7 +289,7 @@ checkLoginStatus();
       $('#img').attr('src', '../' + data.feature).show()
       $('#category option[value = ' + data.category_id + ']').prop('selected', true) //学个属性值选择器
       $('#created').val(moment(data.created).format('YYYY-MM-DDTHH:mm'))
-      $('#status option[value = ' + data.status + ']').prop('selected', true)//学个属性值选择器 (_)
+      $('#status option[value = ' + data.status + ']').prop('selected', true) //学个属性值选择器 (_)
 
     }
   </script>

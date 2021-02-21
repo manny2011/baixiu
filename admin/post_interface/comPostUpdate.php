@@ -1,6 +1,5 @@
 <?php
 include_once('../../sql/fn.php');
-
 // echo '<pre>';
 // print_r($_POST);
 // echo '</pre>';
@@ -9,6 +8,7 @@ include_once('../../sql/fn.php');
 // print_r($_FILES);
 // echo '</pre>';
 
+$id = $_POST['id'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 $slug = $_POST['slug'];
@@ -16,8 +16,6 @@ $slug = $_POST['slug'];
 $category = $_POST['category'];
 $created = $_POST['created'];
 $status = $_POST['status'];
-session_start();
-$user_id = $_SESSION['id'];
 $file = $_FILES['feature'];
 $feature = '';
 if ($file['error'] == 0) {
@@ -31,10 +29,12 @@ if ($file['error'] == 0) {
   // 由于不同点文件夹相对于uploads的路径不一样，我们能确定图片一定放在uploads里面；
   $feature = 'uploads/' . $newName;
 }
-
-$sql = "insert into posts (title,slug,feature,created,content,status,'user_id','category_id') 
-                    values ('$title','$slug','$feature','$created','$content','$status',$user_id,'$category')";
+$sql = '';
+if(empty($feature)){
+    $sql = "UPDATE posts set content = '$content',slug = '$slug',title = '$title',created = '$created',status = '$status',category_id = '$category' where id = $id";
+}else{
+    $sql = "UPDATE posts set content = '$content',slug = '$slug',title = '$title',created = '$created',status = '$status',category_id = '$category',feature = '$feature' where id = $id";
+}
 
 $data = my_exec($sql);
-echo $data;
-header('location:../posts.php');
+echo json_encode($data);

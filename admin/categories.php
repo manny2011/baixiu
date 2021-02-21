@@ -78,24 +78,6 @@ checkLoginStatus();
                   <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
                 </td>
               </tr>
-              <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td>未分类</td>
-                <td>uncategorized</td>
-                <td class="text-center">
-                  <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
-              <tr>
-                <td class="text-center"><input type="checkbox"></td>
-                <td>未分类</td>
-                <td>uncategorized</td>
-                <td class="text-center">
-                  <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
             </tbody>
           </table>
         </div>
@@ -110,8 +92,33 @@ checkLoginStatus();
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../lib/template-web.js"></script>
   <script>
     NProgress.done()
+  </script>
+  <script type="text/template" id="temp-category">
+    {{each $data}}
+    <tr>
+      <td class="text-center" data-id={{$value.id}}><input type="checkbox"></td>
+      <td>{{$value.name}}</td>
+      <td>{{$value.slug}}</td>
+      <td class="text-center" data-id={{$value.id}}>
+        <a href="javascript:;" class="btn btn-info btn-xs">编辑</a>
+        <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+  <script>
+    $.ajax({
+      url: './category_interface/comGet.php',
+      type: 'get',
+      dataType: 'json',
+      success: function(data) {
+        console.log(data);
+        $('tbody').html(template('temp-category', data))
+      }
+    })
   </script>
 </body>
 
