@@ -901,7 +901,7 @@ var requirejs, require, define;
                                 err.requireModules = this.map.isDefine ? [this.map.id] : null;
                                 err.requireType = this.map.isDefine ? 'define' : 'require';
                                 return onError((this.error = err));
-                            }
+                            }   
 
                         } else {
                             //Just a literal value

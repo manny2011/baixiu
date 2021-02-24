@@ -1,0 +1,42 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="../require/require.js" data-main='./js/'></script> -->
+  <!-- <script src="../require/require.js" ></script> -->
+  <!-- <script src="./main.js"></script> -->
+  <!-- 下面这样配置data-main属性后，默认也会把baseURl设置为./,即post/ 
+        即：2种情况data-main:
+        1。即可以是baseUrl，
+        2。也可以是baseUrl+要首先执行的主配置文件（此种情况下主配置文件中的baseUrl无效-->
+  <script src="../require/require.js"></script>
+  <script src="./main.js"></script>
+
+  <script>
+    // require(['./js/a.js'],function(){
+    //   console.log('a 引入完成！');
+    // })
+    // require(['./js/b.js'],function (mb) {//避免全局变量污染问题
+    //   console.log('b 引入完成');
+    //   console.log(mb);
+    // })
+    // require(['./js/a.js','./js/b.js'],function (ma,mb) {
+    //     console.log(ma,mb);
+    // })
+    // 路径拼接时，后缀.js是不能写的，否则 报错！
+    // require(['c'],function (params) {//特别复杂路径 需要使用到路径配置
+    //   console.log('c.js加载完成');
+    // })
+
+    require([
+      'enhance'
+    ])
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

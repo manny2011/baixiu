@@ -38,7 +38,7 @@ checkLoginStatus();
       </div> -->
       <div class="row">
         <div class="col-md-4">
-          <form>
+          <form id="form-add-slide">
             <h2>添加新轮播内容</h2>
             <div class="form-group">
               <label for="image">图片</label>
@@ -55,7 +55,7 @@ checkLoginStatus();
               <input id="link" class="form-control" name="link" type="text" placeholder="链接">
             </div>
             <div class="form-group">
-              <input class="btn btn-primary" type="button" value="添加">
+              <input class="btn btn-primary btn-add" type="button" value="添加">
             </div>
           </form>
         </div>
@@ -74,22 +74,14 @@ checkLoginStatus();
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td class="text-center"><img class="slide" src="../uploads/slide_1.jpg"></td>
                 <td>XIU功能演示</td>
                 <td>#</td>
                 <td class="text-center">
                   <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
                 </td>
-              </tr>
-              <tr>
-                <td class="text-center"><img class="slide" src="../uploads/slide_2.jpg"></td>
-                <td>XIU功能演示</td>
-                <td>#</td>
-                <td class="text-center">
-                  <a href="javascript:;" class="btn btn-danger btn-xs">删除</a>
-                </td>
-              </tr>
+              </tr> -->
             </tbody>
           </table>
         </div>
@@ -104,8 +96,83 @@ checkLoginStatus();
 
   <script src="../assets/vendors/jquery/jquery.js"></script>
   <script src="../assets/vendors/bootstrap/js/bootstrap.js"></script>
+  <script src="../lib/template-web.js"></script>
+
+  <script type="text/template" id="tmp-slides">
+    {{each $data}}
+    <tr>
+      <td class="text-center"><img class="slide" src="../{{$value.image}}"></td>
+      <td>{{$value.text}}</td>
+      <td>#</td>
+      <td class="text-center" data-id={{$index}}>
+        <a href="javascript:;" class="btn btn-danger btn-xs btn-del">删除</a>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+
   <script>
     NProgress.done()
+  </script>
+  <script>
+    getListData()
+    $('.btn-add').click(function(){
+      var fd = new FormData($('#form-add-slide')[0])
+      console.log(fd);
+      $.ajax({
+        url:'./slides_interface/comAdd.php',
+        type:'post',
+        data:fd,
+        processData:false,
+        contentType:false,
+        dataType:'json',
+        success:function(data){
+          console.log(data);
+          getListData();
+        },
+        error:function(err){
+          console.log(err);
+        },
+        complete:function(){
+          console.log('add complete');
+        }
+      })
+    })
+    $('tbody').on('click', '.btn-del', function() {
+      var id = $(this).parent().attr('data-id')
+      $.ajax({
+        url: './slides_interface/comDel.php',
+        type: 'get',
+        data: {
+          id: id,
+        },
+        dataType: 'json',
+        success: function(data) {
+          console.log(data);
+          // if (data) {
+            getListData()
+          // }
+        }
+      })
+    })
+
+    function getListData() {
+      $.ajax({
+        url: './slides_interface/comGet.php',
+        type: 'get',
+        dataType: 'json',
+        success: function(data) { //这里是json str还是json 对象呢
+          // console.log(data);
+          var value = data['value'] //注意 这里取出来的是string，需要转化为js对象
+          // console.log(value.length);
+
+          var str = template('tmp-slides', JSON.parse(value))
+          // console.log(str)
+          $('tbody').html(str)
+          $('#form-add-slide')[0].reset()
+        }
+      })
+    }
   </script>
 </body>
 
