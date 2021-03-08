@@ -1,0 +1,253 @@
+// @import './base.less';
+
+body {
+  background-color: #ccc;
+}
+.jd-layout {
+  width: 100%;
+  height: 1000px;
+  max-width: 640px;
+  min-width: 320px;
+  background-color: #fff;
+  margin: 0 auto;
+
+  .jd-header {
+    position: fixed;
+    width: 100%;
+    max-width: 640px;
+    min-width: 320px;
+    height: 40px;
+    background-color: rgba(222, 27, 22, 0);
+    padding: 0px 50px 0px 75px;
+
+    .jd-logo {
+      position: absolute;
+      left: 10px;
+      top: 9px;
+      width: 56px;
+      height: 22px;
+      background: url("../images/jd-sprites.png") no-repeat;
+      // 二倍图 量出来位置缩小一半
+      background-position: 0 -109px;
+      // 图片大小压缩成原来的一半
+      background-size: 200px 200px;
+    }
+    .jd-search {
+      width: 100%;
+      height: 30px;
+      margin-top: 5px;
+      position: relative;
+
+      .search-logo {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        background: url("../images/jd-sprites.png") no-repeat;
+        background-size: 200px 200px;
+        background-position: -59px -109px;
+        left: 10;
+        top: 5;
+      }
+
+      .js-search-key {
+        // background-color: #fff;
+        width: 100%;
+        height: 100%;
+        border-radius: 15px;
+        padding-left: 40px;
+      }
+    }
+
+    .login {
+      position: absolute;
+      right: 0;
+      top: 0;
+      text-align: center;
+      width: 50px;
+      line-height: 40px;
+      height: 100%;
+    }
+  }
+  .banner {
+    position: relative;
+    width: 100%;
+    background-color: green;
+    overflow: hidden;
+    ul {
+      width: 10000%;
+    }
+    li {
+      float: left;
+    }
+    ol {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;//指的是父容器宽度的一半
+      transform: translateX(-50%);//指的是自身宽度的一半
+    }
+    ol li {
+      width: 8px;
+      height: 8px;
+      border: 1px solid #fff;
+      float: left;
+      border-radius: 50%;
+      margin: 0 6px;
+    }
+    ol li.current {
+      background-color: #fff;
+    }
+  }
+  .jd-nav {
+    li {
+      width: 20%;
+      float: left;
+      text-align: center;
+      padding-top: 30px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  .jd-news {
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    position: relative;
+    .list {
+      width: 100%;
+      height: 100%;
+      padding: 0 40px 0 80px;
+      background-color: #ccc;
+      overflow: hidden;
+      li {
+        height: 100%;
+        // background-color: #ccc;
+        line-height: 30px;
+      }
+    }
+    .logo {
+      position: absolute;
+      width: 80px;
+      height: 100%;
+      // line-height: 80px;
+      left: 0;
+      top: 7px;
+      text-align: center;
+      img {
+        width: 73px;
+        height: 16px;
+      }
+    }
+    .more {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      height: 100%;
+      width: 40px;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+  .secondkill {
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    padding: 0 10px;
+    margin-top: 10px;
+    .top {
+      .logo {
+        width: 20px;
+        height: 22px;
+        margin-top: 4px;
+        background-position: -83px -109px;
+      }
+      .title {
+        margin-left: 10px;
+      }
+      .time {
+        margin-left: 10px;
+        span {
+          padding: 2px;
+          color: white;
+        }
+        span:nth-child(odd) {
+          background-color: #000;
+          border-radius: 3px;
+        }
+        span:nth-child(even) {
+          color: black;
+        }
+      }
+      .more {
+      }
+    }
+    .bottom {
+      margin-top: 20px;
+      overflow: scroll;
+      ul {
+        width: 980px;
+      }
+      li {
+        width: 87px;
+        float: left;
+        img {
+          width: 60%;
+        }
+      }
+      p:nth-child(3) {
+        text-decoration: line-through;
+        color: #999;
+      }
+      p:nth-child(2) {
+        color: #333;
+      }
+    }
+  }
+  .major {
+    margin-top: 10px;
+    a {
+      float: left;
+      width: 33.33%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .jd-product {
+    //主要用的就是百分比布局+浮动 css2
+    // li:nth-child(1) {
+    //   a{
+    //     width: 33.33%;
+    //     float: left;
+    //     img{
+    //       width: 100%;
+    //     }
+    //   }
+    // }
+    // li:nth-child(2),
+    // li:nth-child(3){
+    //   a{
+    //     width: 50%;
+    //     float: left;
+    //     img{
+    //       width: 100%;
+    //     }
+    //   }
+    // }
+    li {
+      a {
+        width: 50%;
+        float: left;
+        img {
+          width: 100%;
+        }
+      }
+      &:nth-child(1) {
+        a {
+          width: 33.33%;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,209 @@
+body {
+  background-color: #ccc;
+}
+.jd-layout {
+  width: 100%;
+  height: 1000px;
+  max-width: 640px;
+  min-width: 320px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+.jd-layout .jd-header {
+  position: fixed;
+  width: 100%;
+  max-width: 640px;
+  min-width: 320px;
+  height: 40px;
+  background-color: rgba(222, 27, 22, 0);
+  padding: 0px 50px 0px 75px;
+}
+.jd-layout .jd-header .jd-logo {
+  position: absolute;
+  left: 10px;
+  top: 9px;
+  width: 56px;
+  height: 22px;
+  background: url("../images/jd-sprites.png") no-repeat;
+  background-position: 0 -109px;
+  background-size: 200px 200px;
+}
+.jd-layout .jd-header .jd-search {
+  width: 100%;
+  height: 30px;
+  margin-top: 5px;
+  position: relative;
+}
+.jd-layout .jd-header .jd-search .search-logo {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  background: url("../images/jd-sprites.png") no-repeat;
+  background-size: 200px 200px;
+  background-position: -59px -109px;
+  left: 10;
+  top: 5;
+}
+.jd-layout .jd-header .jd-search .js-search-key {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  padding-left: 40px;
+}
+.jd-layout .jd-header .login {
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  width: 50px;
+  line-height: 40px;
+  height: 100%;
+}
+.jd-layout .banner {
+  position: relative;
+  width: 100%;
+  background-color: green;
+  overflow: hidden;
+}
+.jd-layout .banner ul {
+  width: 10000%;
+}
+.jd-layout .banner li {
+  float: left;
+}
+.jd-layout .banner ol {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.jd-layout .banner ol li {
+  width: 8px;
+  height: 8px;
+  border: 1px solid #fff;
+  float: left;
+  border-radius: 50%;
+  margin: 0 6px;
+}
+.jd-layout .banner ol li.current {
+  background-color: #fff;
+}
+.jd-layout .jd-nav li {
+  width: 20%;
+  float: left;
+  text-align: center;
+  padding-top: 30px;
+}
+.jd-layout .jd-nav li img {
+  width: 40px;
+  height: 40px;
+}
+.jd-layout .jd-news {
+  width: 100%;
+  height: 30px;
+  margin-top: 30px;
+  position: relative;
+}
+.jd-layout .jd-news .list {
+  width: 100%;
+  height: 100%;
+  padding: 0 40px 0 80px;
+  background-color: #ccc;
+  overflow: hidden;
+}
+.jd-layout .jd-news .list li {
+  height: 100%;
+  line-height: 30px;
+}
+.jd-layout .jd-news .logo {
+  position: absolute;
+  width: 80px;
+  height: 100%;
+  left: 0;
+  top: 7px;
+  text-align: center;
+}
+.jd-layout .jd-news .logo img {
+  width: 73px;
+  height: 16px;
+}
+.jd-layout .jd-news .more {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  height: 100%;
+  width: 40px;
+  line-height: 30px;
+  text-align: center;
+}
+.jd-layout .secondkill {
+  width: 100%;
+  text-align: center;
+  line-height: 30px;
+  padding: 0 10px;
+  margin-top: 10px;
+}
+.jd-layout .secondkill .top .logo {
+  width: 20px;
+  height: 22px;
+  margin-top: 4px;
+  background-position: -83px -109px;
+}
+.jd-layout .secondkill .top .title {
+  margin-left: 10px;
+}
+.jd-layout .secondkill .top .time {
+  margin-left: 10px;
+}
+.jd-layout .secondkill .top .time span {
+  padding: 2px;
+  color: white;
+}
+.jd-layout .secondkill .top .time span:nth-child(odd) {
+  background-color: #000;
+  border-radius: 3px;
+}
+.jd-layout .secondkill .top .time span:nth-child(even) {
+  color: black;
+}
+.jd-layout .secondkill .bottom {
+  margin-top: 20px;
+  overflow: scroll;
+}
+.jd-layout .secondkill .bottom ul {
+  width: 980px;
+}
+.jd-layout .secondkill .bottom li {
+  width: 87px;
+  float: left;
+}
+.jd-layout .secondkill .bottom li img {
+  width: 60%;
+}
+.jd-layout .secondkill .bottom p:nth-child(3) {
+  text-decoration: line-through;
+  color: #999;
+}
+.jd-layout .secondkill .bottom p:nth-child(2) {
+  color: #333;
+}
+.jd-layout .major {
+  margin-top: 10px;
+}
+.jd-layout .major a {
+  float: left;
+  width: 33.33%;
+}
+.jd-layout .major a img {
+  width: 100%;
+}
+.jd-layout .jd-product li a {
+  width: 50%;
+  float: left;
+}
+.jd-layout .jd-product li a img {
+  width: 100%;
+}
+.jd-layout .jd-product li:nth-child(1) a {
+  width: 33.33%;
+}

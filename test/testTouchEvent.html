@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .target{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="target"></div>
+
+  <script>
+    var target = document.querySelector('.target')
+    target.ontouchstart = function(e){
+      console.log(e);
+      //changedTouches
+      //touches
+      //targetTouches
+      
+    }
+    target.ontouchmove = function(e){
+      console.log(e);
+    }
+    target.ontouchend = function(e){
+      console.log(e);
+    }
+  </script>
+</body>
+</html>

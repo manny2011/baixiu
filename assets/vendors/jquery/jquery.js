@@ -125,7 +125,7 @@ jQuery.fn = jQuery.prototype = {
 
 		// HANDLE: $(""), $(null), $(undefined), $(false)
 		if ( !selector ) {
-			return this;
+			return this; 
 		}
 
 		// Handle HTML strings

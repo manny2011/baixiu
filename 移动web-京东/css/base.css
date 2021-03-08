@@ -1,0 +1,95 @@
+/* 样式重置 */
+body,
+div,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+textarea,
+select,
+p,
+dl,
+dt,
+dd,
+a,
+img,
+button,
+form,
+table,
+th,
+tr,
+td,
+tbody,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+menu,
+nav,
+section,
+span {
+  /*清除默认边距*/
+  margin: 0;
+  padding: 0;
+  /*内减模式*/
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  /* 去除移动端点击高亮效果*/
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-family: "Microsoft Yahei", "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: #333;
+}
+a,
+a:hover {
+  text-decoration: none;
+  color: #333;
+}
+ul,
+ol {
+  list-style: none;
+}
+input {
+  border: none;
+  outline: none;
+  /* 去除移动端 表单 默认阴影 3d效果 */
+  -webkit-appearance: none;
+}
+/* 公共样式 */
+.fl {
+  float: left;
+}
+.fr {
+  float: right;
+}
+/*清除浮动*/
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+  line-height: 0;
+  height: 0;
+  visibility: hidden;
+}
+.jd-sprite {
+  background: url("../images/jd-sprites.png") no-repeat;
+  background-size: 200px 200px;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
