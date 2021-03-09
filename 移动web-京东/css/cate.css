@@ -1,0 +1,35 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  background-color: #ccc;
+}
+.cate-layout {
+  height: 100%;
+  position: relative;
+  padding-top: 44px;
+}
+.cate-layout .header {
+  background-color: yellow;
+  height: 44px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.cate-layout .content {
+  width: 100%;
+  height: 100%;
+}
+.cate-layout .left {
+  background-color: pink;
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+.cate-layout .right {
+  background-color: blue;
+  height: 100%;
+  width: 80%;
+  float: left;
+}

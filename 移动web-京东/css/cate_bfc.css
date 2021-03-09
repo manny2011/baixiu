@@ -1,0 +1,90 @@
+body,
+html {
+  height: 100%;
+}
+.cate-layout {
+  height: 100%;
+  padding-top: 44px;
+  position: relative;
+}
+.cate-layout .header {
+  background: linear-gradient(#ccc, #999);
+  height: 44px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.cate-layout .header .arrow {
+  width: 44px;
+  height: 44px;
+  float: left;
+  padding: 12px;
+  background-position: -21px 0;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+.cate-layout .header .search {
+  overflow: hidden;
+  height: 100%;
+}
+.cate-layout .header .search input {
+  width: 100%;
+  height: 34px;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-left: 10px;
+}
+.cate-layout .header .menu {
+  width: 44px;
+  height: 44px;
+  float: right;
+  padding: 12px;
+  background-position: -60px 0;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+.cate-layout .content {
+  height: 100%;
+}
+.cate-layout .content .left {
+  background-color: yellow;
+  height: 100%;
+  width: 90px;
+  float: left;
+  overflow: auto;
+}
+.cate-layout .content .left a {
+  width: 90px;
+  height: 50px;
+  display: block;
+  line-height: 50px;
+  text-align: center;
+  border-right: 1px solid red;
+  border-bottom: 1px solid red;
+}
+.cate-layout .content .left a.current {
+  border-bottom: 1px solid red;
+  border-right: none;
+  color: red;
+}
+.cate-layout .content .right .in {
+  height: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 10px;
+}
+.cate-layout .content .right .in > a {
+  display: block;
+}
+.cate-layout .content .right .in .hot {
+  margin-top: 10px;
+}
+.cate-layout .content .right .in .hot ul li {
+  float: left;
+  width: 33.33%;
+}
+.cate-layout .content .right .in .hot ul li a {
+  display: block;
+  text-align: center;
+}

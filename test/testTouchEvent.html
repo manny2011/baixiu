@@ -11,10 +11,31 @@
       background-color: yellow;
       margin: 0 auto;
     }
+    .bfc{
+      background-color: #333;
+    }
+    .left{
+      background-color: yellow;
+      width: 90px;
+      height: 100px;
+      float: left;
+
+    }
+    .right{
+      background-color: pink;
+      width: 80%;
+      height: 200px;
+      /* overflow: hidden; */
+    }
   </style>
 </head>
 <body>
   <div class="target"></div>
+
+  <div class="bfc">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
 
   <script>
     var target = document.querySelector('.target')
