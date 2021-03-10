@@ -52,7 +52,7 @@ html {
   height: 100%;
   width: 90px;
   float: left;
-  overflow: auto;
+  overflow: hidden;
 }
 .cate-layout .content .left a {
   width: 90px;
@@ -68,9 +68,9 @@ html {
   border-right: none;
   color: red;
 }
-.cate-layout .content .right .in {
-  height: 100%;
+.cate-layout .content .right {
   overflow: hidden;
+  height: 100%;
   background-color: #fff;
   padding: 10px;
 }

@@ -1,0 +1,230 @@
+.cart-layout {
+  padding-top: 44px;
+  // position: relative;
+  .header {
+    background: linear-gradient(#ccc, #999);
+    height: 44px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    .arrow {
+      width: 44px;
+      height: 44px;
+      float: left;
+      padding: 12px;
+      background-position: -21px 0;
+      background-origin: content-box;
+      background-clip: content-box;
+    }
+    .search {
+      // background-color: red;
+      overflow: hidden;
+      height: 100%;
+      text-align: center;
+      h2 {
+        line-height: 44px;
+      }
+    }
+    .menu {
+      width: 44px;
+      height: 44px;
+      float: right;
+      float: right;
+      padding: 12px;
+      background-position: -60px 0;
+      background-origin: content-box;
+      background-clip: content-box;
+    }
+  }
+  .cart-safe {
+    border-bottom: 1px solid #ccc;
+    p {
+      height: 33px;
+      // background-color: yellowgreen;
+      // line-height: 33px;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 33px;
+        height: 33px;
+        // background-color: red;
+        background: url("../images/safe_icon.png") no-repeat center center;
+        background-size: 25px 25px;
+        vertical-align: middle;
+      }
+    }
+  }
+  .cart-product {
+    height: 100%;
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    .chk {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 7px;
+      top: 7px;
+      background-position: -180px -69px;
+    }
+    .p-title {
+      position: relative;
+      height: 34px;
+      color: #999;
+      line-height: 34px;
+      padding: 0 0 0 34px;
+      border-bottom: 1px solid #ccc;
+
+      .logo {
+        //a标签默认是inline元素，设置宽高 不管用，浮动后就脱标了，可以设置
+        width: 20px;
+        height: 20px;
+        margin: 10px 10px 0 0;
+      }
+      .free {
+        margin-right: 10px;
+      }
+    }
+    .p-list {
+      .item {
+        position: relative;
+        height: 100px;
+        padding: 0 0 0 34px;
+        border-bottom: 1px solid #ccc;
+        img {
+          width: 80px;
+          height: 80px;
+          float: left;
+        }
+        .info {
+          padding: 5px;
+          height: 100px;
+          overflow: hidden;
+          p {
+            // line-height: 16px;
+            // height: 32px;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+          }
+          .option {
+            margin-top: 15px;
+            .num {
+              > * {
+                float: left; //必须浮动,可以设宽高，input本来就是inline-block
+              }
+              span {
+                width: 36px;
+                height: 30px;
+                border: 1px solid #ccc;
+                text-align: center;
+                line-height: 28px;
+              }
+              input {
+                width: 36px;
+                height: 30px;
+                border-top: 1px solid #ccc;
+                border-bottom: 1px solid #ccc;
+                text-align: center;
+              }
+            }
+            .del {
+              margin-right: 10px;
+              width: 18px;
+              height: 22px;
+              // background-color: red;
+              .del-up {
+                width: 100%;
+                height: 4px;
+                margin-bottom: -3px;
+                background: url("../images/delete_down.png") no-repeat;
+                background-size: 18px 4px;
+              }
+              .del-down {
+                width: 100%;
+                height: 18px;
+                background: url("../images/delete_down.png") no-repeat;
+                background-size: 18px 18px;
+              }
+            }
+            .open{
+              .del-up{
+                transform: rotateZ(25deg);
+                transition: transform .5s;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .win-pop {
+    display: none;
+    position: fixed;
+    left: 0; //必须得加left & top才生效
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    .del {
+      width: 80%;
+      padding: 5px;
+      background-color: #fff;
+      // height: 200px;
+      position: absolute;
+      left: 10%;
+      top: 200px;
+      border-radius: 10px;
+      // animation: dropDown 2s ease-in;
+      animation-iteration-count: 1;//设置单个动画属性
+      p {
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        border-bottom: 1px solid #ccc;
+      }
+      .btn {
+        margin-top: 10px;
+        margin-bottom: 20px;
+        .btn {
+          width: 45%;
+          border: 1px solid #333;
+          border-radius: 5px;
+          text-align: center;
+          line-height: 30px;
+          height: 30px;
+        }
+        .right {
+          border: 1px solid red;
+          background-color: red;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+@keyframes dropDown{
+  0%{
+    transform: translateY(-300px);
+  }
+  80%{
+    transform: translateY(30px);
+  }
+  90%{
+    transform: translateY(-20px);
+
+  }
+  95%{
+    transform: translateY(10px);
+
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
