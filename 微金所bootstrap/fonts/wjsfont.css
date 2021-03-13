@@ -1,5 +1,6 @@
 @font-face {
   /*自定义了一个字体*/
+  /* 如果要使用，必须指明这个font-family:'wjs_fonts' */
   font-family: 'wjs_fonts';
   src: url('./MiFie-Web-Font.eot'); /* IE9*/
   src: url('./MiFie-Web-Font.eot#iefix') format('embedded-opentype'), /* IE6-IE8 */

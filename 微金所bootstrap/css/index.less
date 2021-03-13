@@ -161,7 +161,9 @@
 }
 
 .wjs-nav {
+  background-color: #eee;
   .wjs-tabs {
+    border-bottom: 1px solid #aaa;
   }
   .wjs-tabs > li {
     float: left;
@@ -179,26 +181,133 @@
   }
   .tab-content {
     .row {
+      .redTheme {
+        background-color: red !important;
+        .left::before {
+          color: #fff !important;
+        }
+      }
       > div {
         .in {
           margin-top: 10px;
           height: 150px;
-          background-color: orange;
-          .left{
+          background-color: #fff;
+          border-radius: 5px;
+          .left {
+            position: relative;
             height: 100%;
             // width: 100%;//不能加此属性，阻止触发bfc
-            background-color: blue;
-            overflow: hidden;//触发bfc
+            overflow: hidden; //触发bfc
+            text-align: center;
+            font-size: 12px;
+            &::before {
+              content: "\e915";
+              position: absolute;
+              left: 0;
+              top: -9px;
+              width: 30px;
+              height: 30px;
+              font-family: "wjs_fonts"; //必须指定自定义的字体族名
+              font-size: 40px;
+              color: red;
+            }
           }
-          .right{
+          .right {
             height: 100%;
             width: 80px;
             float: right;
-            background-color: darkgreen;
+            padding-top: 30px;
+            border-left: 1px dashed #eee;
+            position: relative;
+            &::before,
+            &::after {
+              content: "";
+              background-color: #eee;
+              position: absolute;
+              width: 14px;
+              height: 14px;
+              left: -7px;
+              top: -7px;
+              border-radius: 50%;
+            }
+            &::after {
+              top: auto; //必须要重置top才行！
+              left: -7px;
+              bottom: -7px;
+            }
+            p {
+              margin-bottom: 10px;
+              span {
+                font-size: 40px;
+                font-weight: 700;
+              }
+            }
           }
         }
       }
     }
   }
   
+}
+.wjs-news{
+  margin-top: 30px;
+  background-color: #fff;
+  .wjs-news-tabs {
+  }
+  .wjs-news-tabs > li {
+    float: left;
+    margin-bottom: 60px;
+  }
+  .wjs-news-tabs > li > a {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    color: #fff;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    span{
+      font-size: 30px;
+    }
+  }
+  .wjs-news-tabs > li > a:hover {
+  }
+  .wjs-news-tabs > li.active > a,
+  .wjs-news-tabs > li.active > a:hover,
+  .wjs-news-tabs > li.active > a:focus {
+
+  }
+  .row{
+    div:nth-child(1){
+      margin-top: 50px;
+      p{
+        position: relative;
+        font-size: 30px;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        &::after{
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          border: 1px solid #999;
+          border-radius: 50%;
+          right: -10px;
+          bottom: -5px;
+
+        }
+      }
+    }
+    div:nth-child(2){
+      .line{
+        width: 1px;
+        height: 80px;
+        background-color: red;
+        border: 1px dashed #ccc;
+      }
+    }
+    div:nth-child(3){
+      
+    }
+  }
 }

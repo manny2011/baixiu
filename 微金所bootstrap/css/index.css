@@ -130,6 +130,12 @@
   color: red;
   border-bottom: 1px dashed red;
 }
+.wjs-nav {
+  background-color: #eee;
+}
+.wjs-nav .wjs-tabs {
+  border-bottom: 1px solid #aaa;
+}
 .wjs-nav .wjs-tabs > li {
   float: left;
 }
@@ -144,19 +150,108 @@
 .wjs-nav .wjs-tabs > li.active > a:focus {
   border-bottom: 1px solid red;
 }
+.wjs-nav .tab-content .row .redTheme {
+  background-color: red !important;
+}
+.wjs-nav .tab-content .row .redTheme .left::before {
+  color: #fff !important;
+}
 .wjs-nav .tab-content .row > div .in {
   margin-top: 10px;
   height: 150px;
-  background-color: orange;
+  background-color: #fff;
+  border-radius: 5px;
 }
 .wjs-nav .tab-content .row > div .in .left {
+  position: relative;
   height: 100%;
-  background-color: blue;
   overflow: hidden;
+  text-align: center;
+  font-size: 12px;
+}
+.wjs-nav .tab-content .row > div .in .left::before {
+  content: "\e915";
+  position: absolute;
+  left: 0;
+  top: -9px;
+  width: 30px;
+  height: 30px;
+  font-family: "wjs_fonts";
+  font-size: 40px;
+  color: red;
 }
 .wjs-nav .tab-content .row > div .in .right {
   height: 100%;
   width: 80px;
   float: right;
-  background-color: darkgreen;
+  padding-top: 30px;
+  border-left: 1px dashed #eee;
+  position: relative;
+}
+.wjs-nav .tab-content .row > div .in .right::before,
+.wjs-nav .tab-content .row > div .in .right::after {
+  content: "";
+  background-color: #eee;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: -7px;
+  top: -7px;
+  border-radius: 50%;
+}
+.wjs-nav .tab-content .row > div .in .right::after {
+  top: auto;
+  left: -7px;
+  bottom: -7px;
+}
+.wjs-nav .tab-content .row > div .in .right p {
+  margin-bottom: 10px;
+}
+.wjs-nav .tab-content .row > div .in .right p span {
+  font-size: 40px;
+  font-weight: 700;
+}
+.wjs-news {
+  margin-top: 30px;
+  background-color: #fff;
+}
+.wjs-news .wjs-news-tabs > li {
+  float: left;
+  margin-bottom: 60px;
+}
+.wjs-news .wjs-news-tabs > li > a {
+  width: 60px;
+  height: 60px;
+  color: #fff;
+  background-color: red;
+  border-radius: 50%;
+  text-align: center;
+}
+.wjs-news .wjs-news-tabs > li > a span {
+  font-size: 30px;
+}
+.wjs-news .row div:nth-child(1) {
+  margin-top: 50px;
+}
+.wjs-news .row div:nth-child(1) p {
+  position: relative;
+  font-size: 30px;
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+.wjs-news .row div:nth-child(1) p::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #999;
+  border-radius: 50%;
+  right: -10px;
+  bottom: -5px;
+}
+.wjs-news .row div:nth-child(2) .line {
+  width: 1px;
+  height: 80px;
+  background-color: red;
+  border: 1px dashed #ccc;
 }
