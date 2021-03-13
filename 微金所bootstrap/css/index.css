@@ -144,3 +144,19 @@
 .wjs-nav .wjs-tabs > li.active > a:focus {
   border-bottom: 1px solid red;
 }
+.wjs-nav .tab-content .row > div .in {
+  margin-top: 10px;
+  height: 150px;
+  background-color: orange;
+}
+.wjs-nav .tab-content .row > div .in .left {
+  height: 100%;
+  background-color: blue;
+  overflow: hidden;
+}
+.wjs-nav .tab-content .row > div .in .right {
+  height: 100%;
+  width: 80px;
+  float: right;
+  background-color: darkgreen;
+}

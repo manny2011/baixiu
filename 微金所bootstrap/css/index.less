@@ -152,18 +152,16 @@
   span[class^="wjs_icon"] {
     font-size: 30px;
   }
-  .pull-left{
-    a{
-      color:red;
+  .pull-left {
+    a {
+      color: red;
       border-bottom: 1px dashed red;
     }
   }
 }
 
-.wjs-nav{
-
+.wjs-nav {
   .wjs-tabs {
-
   }
   .wjs-tabs > li {
     float: left;
@@ -178,6 +176,29 @@
   .wjs-tabs > li.active > a:hover,
   .wjs-tabs > li.active > a:focus {
     border-bottom: 1px solid red;
-
   }
+  .tab-content {
+    .row {
+      > div {
+        .in {
+          margin-top: 10px;
+          height: 150px;
+          background-color: orange;
+          .left{
+            height: 100%;
+            // width: 100%;//不能加此属性，阻止触发bfc
+            background-color: blue;
+            overflow: hidden;//触发bfc
+          }
+          .right{
+            height: 100%;
+            width: 80px;
+            float: right;
+            background-color: darkgreen;
+          }
+        }
+      }
+    }
+  }
+  
 }
