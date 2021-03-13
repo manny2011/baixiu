@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      body{
+        height: 10000px;
+      }
       .target {
         width: 200px;
         height: 200px;
         background-color: orange;
+        background: url('../images/detail01.jpg') no-repeat;
+        background-attachment: fixed;
       }
     </style>
   </head>
@@ -25,8 +30,8 @@
       });
       console.log($(".target"));
       $(".target").animate(
-        { width: "600px", height: "600px" },
-        1000,
+        { width: "600px", height: "2000px" },
+        500,
         function () {
           console.log("animation end!");
         }
